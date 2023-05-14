@@ -15,7 +15,7 @@ static const char norm_fg[] = "#e0e0e0";
 static const char norm_bg[] = "#000000";
 static const char norm_border[] = "#ffffff";
 
-static const char sel_fg[] = "#e0e0e0";
+static const char sel_fg[] = "#000000";
 static const char sel_bg[] = "#32ACDB";
 static const char sel_border[] = "#32acdb";
 
@@ -27,6 +27,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
+/*static const char *tags[] = { "", "", "", "", "", "", "", "", "" };*/
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -34,10 +35,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "SynPS/2 Synaptics TouchPad", NULL, NULL, 1 << 8, 0, 		 -1 },
+	/* class     	 instance    title       tags mask     isfloating   monitor */
+	{ "Navigator",   NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "thunar", 	 NULL,       NULL, 	 1<<3, 	       0,	    -1 },
+	{ "st-256color", NULL,       NULL,  	 0,	       0,	    -1 },
+	{ "gl",		 NULL,	     NULL,	 1<<2,	       0,	    -1 },
 };
 
 /* layout(s) */
@@ -76,9 +78,9 @@ static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+5%", N
 static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL};
 static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
 
-/* brightness constants */
-static const char *upbrightness[] = {"/usr/bin/xbacklight", "-inc", "5", NULL };
-static const char *downbrightness[] = {"/usr/bin/xbacklight", "-dec", "5", NULL };
+/* brightness constants */ 
+static const char *upbrightness[] = {"brightness", "up", NULL };
+static const char *downbrightness[] = {"brightness", "down", NULL };
 
 /* system constants */
 static const char *shutcmd[] = {"shutdown", "-h", "now", NULL };
